@@ -1,1 +1,36 @@
-  
+version: "3.8"
+
+services:
+  #PHP Service
+  php:
+    build: 
+      context: . # current directory
+      target: php # target the php service in the dockerfile
+      args:
+        - APP_ENV=${APP_ENV}
+    environment:
+      - APP_ENV=${APP_ENV}
+      - CONTAINER_ROLE=app
+    working_dir: /var/www # where the app is located in the container
+    volumes:
+      - ./:/var/www # mount the current directory to the container directory to store the code
+    ports:
+      - 8000:8000 # my port so I can connect to it : docker port
+    depends_on:
+      - database # depends on the database service, so it needs to wait until the database is up and running
+
+  #Database server 
+  database:
+    image: mysql:5.7.33
+    ports:
+      - 3306:3306 # my port so I can connect to it : docker port
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql # where the data is stored in the container
+
+volumes:
+  db-data: ~
