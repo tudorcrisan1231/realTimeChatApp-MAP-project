@@ -2,6 +2,6 @@
 
 @section('content')
 
-salut
+@livewire('counter')
 
 @endsection

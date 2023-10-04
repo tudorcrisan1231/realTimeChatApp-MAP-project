@@ -1,9 +1,9 @@
 #! /bin/bash
 
 # if vendor folder does not exist, run composer install
-if [ ! -f "vendor/autoload.php" ]; then
+# if [ ! -f "vendor/autoload.php" ]; then
     composer install --no-progress --no-interaction
-fi
+# fi
 
 
 #if .env file does not exist, copy .env.example to .env
