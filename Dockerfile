@@ -12,3 +12,13 @@ COPY --from=composer:2.5.8 /usr/bin/composer /usr/bin/composer
 
 ENV PORT=8000
 ENTRYPOINT [ "Docker/entrypoint.sh" ]
+
+#node
+FROM node:20.8.0 as node
+
+WORKDIR /var/www
+COPY . .
+
+RUN npm install
+
+VOLUME /var/www/node_modules

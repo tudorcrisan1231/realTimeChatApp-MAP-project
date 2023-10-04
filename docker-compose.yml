@@ -31,6 +31,19 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - db-data:/var/lib/mysql # where the data is stored in the container
+  
+  #node service
+  node:
+    build:
+      context: .
+      target: node
+    volumes:
+      - .:/usr/src
+      - ./node_modules:/usr/src/node_modules
+    tty: true
+    # command: ["npm", "run", "dev"]
+    depends_on:
+      - php
 
 volumes:
   db-data: ~
