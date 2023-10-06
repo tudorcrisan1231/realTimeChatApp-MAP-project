@@ -16,6 +16,7 @@
     @livewireStyles
 </head>
 <body>
+    @include('components.sessions')
     @yield('content')
 
     @livewireScripts

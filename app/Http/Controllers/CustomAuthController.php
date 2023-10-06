@@ -24,12 +24,14 @@ class CustomAuthController extends Controller
         ]);
    
         $credentials = $request->only('email', 'password');
+        // dd($credentials);
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+  
+            return redirect()->route('chats')
                         ->withSuccess('Signed in');
         }
   
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login")->withError('Login details are not valid');
     }
 
     public function register()
@@ -40,39 +42,31 @@ class CustomAuthController extends Controller
     public function customRegister(Request $request)
     {  
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'username' => 'required|max:20',
+            'email' => 'required|email|unique:users|max:30',
+            'password' => 'required|min:6|max:20',
+            'password_confirmation' => 'required|same:password',
         ]);
            
         $data = $request->all();
         $check = $this->create($data);
-         
-        return redirect("dashboard")->withSuccess('You have signed-in');
+        Auth::login($check);
+        return redirect()->route('chats')->withSuccess('You have signed-in');
     }
 
     public function create(array $data)
     {
       return User::create([
-        'name' => $data['name'],
+        'username' => $data['username'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
     }    
     
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('dashboard');
-        }
-  
-        return redirect("login")->withSuccess('You are not allowed to access');
-    }
-    
     public function signOut() {
         Session::flush();
         Auth::logout();
   
-        return Redirect('login');
+        return redirect()->route('login');
     }
 }

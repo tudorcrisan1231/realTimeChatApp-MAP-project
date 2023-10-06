@@ -9,7 +9,8 @@
                 <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign in to start chating</h2>
                 <p class="mt-2 text-base text-gray-600">Don’t have an account? <a href="{{route('register-user')}}" title="" class="font-medium text-amber-600 transition-all duration-200 hover:text-amber-700 hover:underline focus:text-amber-700">Create a free account</a></p>
 
-                <form action="#" method="POST" class="mt-8">
+                <form action="{{route('login.custom')}}" method="POST" class="mt-8">
+                    @csrf
                     <div class="space-y-5">
                         <div>
                             <label for="" class="text-base font-medium text-gray-900"> Email address </label>
@@ -17,11 +18,14 @@
                                 <input
                                     type="email"
                                     name="email"
-                                    id=""
+                                    id="email"
                                     placeholder="Enter email"
                                     class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-amber-600 focus:bg-white caret-amber-600"
                                 />
                             </div>
+                            @if ($errors->has('email'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, no!</span> {{ $errors->first('email') }}</p>
+                            @endif
                         </div>
 
                         <div>
@@ -34,11 +38,14 @@
                                 <input
                                     type="password"
                                     name="password"
-                                    id=""
+                                    id="password"
                                     placeholder="Enter your password"
                                     class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-amber-600 focus:bg-white caret-amber-600"
                                 />
                             </div>
+                            @if ($errors->has('password'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, no!</span> {{ $errors->first('password') }}</p>
+                            @endif
                         </div>
 
                         <div>
@@ -58,7 +65,7 @@
                     <h3 class="text-2xl font-bold text-center text-black">Real time chat app. MAP project</h3>
                     
                     <h3 class="text-lg font-bold text-center text-black mt-3">-Admin-</h3>
-                    <p class="leading-relaxed text-center text-gray-500 mt-1.5">admin@admin.com - password</p>
+                    <p class="leading-relaxed text-center text-gray-500 mt-1.5">admin@admin.com - admin</p>
 
                     <h3 class="text-lg font-bold text-center text-black mt-3">-Normal user-</h3>
                     <p class="leading-relaxed text-center text-gray-500 mt-1.5">tudor@tudor.com - tudor</p>

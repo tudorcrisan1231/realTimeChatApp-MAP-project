@@ -3,6 +3,7 @@
 # if vendor folder does not exist, run composer install
 if [ ! -f "vendor/autoload.php" ]; then
     composer install --no-progress --no-interaction
+    php artisan db:seed
 fi
 
 
@@ -16,6 +17,7 @@ fi
 
 
 php artisan migrate
+
 php artisan key:generate
 # php artisan cache:clear
 # php artisan config:clear

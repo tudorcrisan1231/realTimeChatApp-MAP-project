@@ -9,7 +9,8 @@
                 <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">Create a free account</h2>
                 <p class="mt-2 text-base text-gray-600">Already have an account? <a href="{{route('login')}}" title="" class="font-medium text-amber-600 transition-all duration-200 hover:text-amber-700 hover:underline focus:text-amber-700">Login</a></p>
 
-                <form action="#" method="POST" class="mt-8">
+                <form action="{{route('register.custom')}}" method="POST" class="mt-8">
+                    @csrf
                     <div class="space-y-5">
                         <div>
                             <label for="" class="text-base font-medium text-gray-900"> Username </label>
@@ -22,6 +23,9 @@
                                     class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-amber-600 focus:bg-white caret-amber-600"
                                 />
                             </div>
+                            @if ($errors->has('username'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, no!</span> {{ $errors->first('username') }}</p>
+                            @endif
                         </div>
 
                         <div>
@@ -35,6 +39,9 @@
                                     class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-amber-600 focus:bg-white caret-amber-600"
                                 />
                             </div>
+                            @if ($errors->has('email'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, no!</span> {{ $errors->first('email') }}</p>
+                            @endif
                         </div>
 
                         <div>
@@ -50,6 +57,9 @@
                                     class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-amber-600 focus:bg-white caret-amber-600"
                                 />
                             </div>
+                            @if ($errors->has('password'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, no!</span> {{ $errors->first('password') }}</p>
+                            @endif
                         </div>
 
                         <div>
@@ -65,6 +75,9 @@
                                     class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-amber-600 focus:bg-white caret-amber-600"
                                 />
                             </div>
+                            @if ($errors->has('password_confirmation'))
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oh, no!</span> {{ $errors->first('password_confirmation') }}</p>
+                            @endif
                         </div>
 
                         <div>
