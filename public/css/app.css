@@ -46,3 +46,7 @@ body {
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }
+
+.h-80vh{
+    height: 80vh;
+}

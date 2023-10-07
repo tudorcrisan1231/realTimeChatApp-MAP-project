@@ -17,7 +17,12 @@
 </head>
 <body>
     @include('components.sessions')
+ 
+    @include('components.nav')
+
     @yield('content')
+
+    @include('components.footer')
 
     @livewireScripts
 </body>

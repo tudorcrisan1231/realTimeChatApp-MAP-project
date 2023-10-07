@@ -27,5 +27,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/',[HomeController::class,'index'])->name('chats');
+    Route::get('/profile',[HomeController::class,'profile'])->name('profile');
 });
 

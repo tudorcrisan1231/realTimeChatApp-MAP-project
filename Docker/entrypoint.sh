@@ -17,7 +17,7 @@ fi
 
 
 php artisan migrate
-
+php artisan storage:link
 php artisan key:generate
 # php artisan cache:clear
 # php artisan config:clear

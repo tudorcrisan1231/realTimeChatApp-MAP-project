@@ -2,7 +2,9 @@
 
 @section('content')
 
-@livewire('chat')
+
+@livewire('profile')
+
 
 
 @endsection
