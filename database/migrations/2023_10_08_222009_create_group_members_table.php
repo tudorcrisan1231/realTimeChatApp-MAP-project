@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('group_members', function (Blueprint $table) {
-            //add is_admin
-            $table->boolean('is_admin')->default(false)->after('user_id');
+        Schema::create('group_members', function (Blueprint $table) {
+            $table->id();
+            $table->integer('group_id')->nullable();
+            $table->integer('user_id')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('group_members', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('group_members');
     }
 };

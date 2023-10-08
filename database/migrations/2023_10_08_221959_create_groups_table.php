@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-
             $table->string('name')->nullable();
-            $table->integer('admin_id')->nullable();
-
+            $table->string('type')->nullable(); //group, individual
+        
             $table->timestamps();
             $table->softDeletes();
         });
