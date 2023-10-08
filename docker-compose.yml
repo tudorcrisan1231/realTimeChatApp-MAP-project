@@ -25,10 +25,10 @@ services:
     ports:
       - 3306:3306 # my port so I can connect to it : docker port
     environment:
-      MYSQL_DATABASE: realtimechatapp
-      MYSQL_USER: root
-      MYSQL_PASSWORD: ""
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - db-data:/var/lib/mysql # where the data is stored in the container
     command: ["--init-file", "/docker-entrypoint-initdb.d/init.sql"] # run the init.sql file to create the database and the tables
