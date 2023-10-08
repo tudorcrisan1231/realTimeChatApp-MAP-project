@@ -31,7 +31,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - db-data:/var/lib/mysql # where the data is stored in the container
-    command: ["--init-file", "/docker-entrypoint-initdb.d/init.sql"] # run the init.sql file to create the database and the tables
   
   #node service
   # node:
