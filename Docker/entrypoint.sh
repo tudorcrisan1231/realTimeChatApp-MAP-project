@@ -8,9 +8,10 @@ else
     echo "Env file exists"
 fi
 
-# if vendor folder does not exist, run composer install
+# if vendor folder does not exist, run composer install (first time)
 if [ ! -f "vendor/autoload.php" ]; then
     composer install --no-progress --no-interaction
+    php artisan migrate
     php artisan db:seed
 fi
 
