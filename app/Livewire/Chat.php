@@ -10,88 +10,106 @@ use Livewire\Component;
 
 class Chat extends Component
 {
-    public $group_chats = [], $individual_chats = [];
+    public $groups = [], $chats = [];
 
     //create new chat variables
-    public $newGroupType, $addNewGroup = 0, $users = [], $group_new, $selected_users = [];
+    public $newGroupType, $addNewGroup = 0, $users = [], $group_name, $selected_users = [];
 
-    public $activeChatID = null, $activeChatType = null;
+    public $activeChat = null, $chat_message;
 
     public function openAddNewGroup($type){
         $this->addNewGroup = 1;
         $this->newGroupType = $type;
 
-        $this->reset(['group_new', 'selected_users']);
+        $this->reset(['group_name', 'selected_users']);
     }
 
     public function closeAddNewGroup(){
         $this->addNewGroup = 0;
         $this->newGroupType = null;
 
-        $this->reset(['group_new', 'selected_users']);
+        $this->reset(['group_name', 'selected_users']);
     }
 
     public function createGroup(){
-        // dd($this->newGroupType, $this->group_new, $this->selected_users);
+  
+        $this->validate([
+            'selected_users' => 'required'
+        ], [
+            'selected_users.required' => 'Please select atleast one user'
+        ]);
+
         if($this->newGroupType == 'group'){
             $this->validate([
-                'group_new' => 'required',
-                'selected_users' => 'required'
+                'group_name' => 'required'
             ], [
-                'group_new.required' => 'Group name is required',
-                'selected_users.required' => 'Please select atleast one user'
+                'group_name.required' => 'Please enter group name'
             ]);
+        }
 
-            $group = new Group();
-            $group->name = $this->group_new;
-            $group->save();
+        $group = new Group();
+        $group->name = $this->group_name;
+        $group->type = $this->newGroupType;
+        $group->save();
 
+        if($this->newGroupType == 'group'){
+            //add group members
             foreach($this->selected_users as $user){
                 $group_member = new GroupMember();
                 $group_member->group_id = $group->id;
                 $group_member->user_id = $user;
                 $group_member->save();
             }
-
+            //add the user who created the group
             $group_member = new GroupMember();
             $group_member->group_id = $group->id;
             $group_member->user_id = auth()->user()->id;
-            $group_member->is_admin = 1;
+            $group_member->save();
+        } else {
+            //add the user who created the group
+            $group_member = new GroupMember();
+            $group_member->group_id = $group->id;
+            $group_member->user_id = auth()->user()->id;
             $group_member->save();
 
-        } else {
-            $this->validate([
-                'selected_users' => 'required'
-            ], [
-                'selected_users.required' => 'Please select atleast one user'
-            ]);
+            //add the user who is selected
+            $group_member = new GroupMember();
+            $group_member->group_id = $group->id;
+            $group_member->user_id = $this->selected_users;
+            $group_member->save();
+        }
 
-            //if chat already exists
-            if(IndividualChatGroup::where('user1_id', auth()->user()->id)->where('user2_id', $this->selected_users)->orWhere('user1_id', $this->selected_users)->where('user2_id', auth()->user()->id)->exists()){
-                return redirect()->route('chats')->with('error', 'Chat already exists');
-            }
-
-            $group = new IndividualChatGroup();
-
-            $group->user1_id = auth()->user()->id;
-            $group->user2_id = $this->selected_users;
-
-            $group->save();
-        }   
 
         return redirect()->route('chats')->with('success', 'Chat created successfully');
     }
 
-    public function openChat($type, $group_id){
-        $this->activeChatID = $group_id;
-        $this->activeChatType = $type;
+    public function openChat($group_id){
+        $this->chat_message = null;
+
+        $this->activeChat = Group::find($group_id);
+
+        $this->chats = ModelsChat::where('group_id', $group_id)->orderBy('created_at', 'asc')->get();
+    }
+
+    public function sendMessage(){
+        $this->validate([
+            'chat_message' => 'required'
+        ]);
+        
+        $chat = new ModelsChat();
+        $chat->group_id = $this->activeChat->id;
+        $chat->sender_id = auth()->user()->id;
+        $chat->message = $this->chat_message;
+        $chat->save();
+
+        $this->chat_message=null;
+        $this->chats = ModelsChat::where('group_id', $this->activeChat->id)->orderBy('created_at', 'asc')->get();
     }
 
     public function mount(){
         $user = auth()->user();
-        $this->individual_chats = IndividualChatGroup::where('user1_id', $user->id)->orWhere('user2_id', $user->id)->get();
-        $this->group_chats = GroupMember::where('user_id', $user->id)->get();
-
+        
+        $this->groups = GroupMember::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
         $this->users = User::where('id', '!=', auth()->user()->id)->get();
     }

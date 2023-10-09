@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
     use HasFactory;
+
+    public function getSender(){
+        return $this->belongsTo(User::class, 'sender_id');
+    }
 }

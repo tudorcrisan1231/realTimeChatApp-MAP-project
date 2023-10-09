@@ -1,0 +1,4 @@
+1. cand se incearca sa se creeze un nou chat individual, sa nu se poata crea daca exista deja un chat intre cei doi utilizatori
+2. functie de report
+3. dashboard cu toti utilizatorii si posibilitatea de a da block/unblock
+4. in dashboard apar si reporturile date de utilizatori
