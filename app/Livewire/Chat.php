@@ -5,8 +5,10 @@ namespace App\Livewire;
 use App\Models\Chat as ModelsChat;
 use App\Models\Group;
 use App\Models\GroupMember;
+use App\Models\Report;
 use App\Models\User;
 use Livewire\Component;
+
 
 class Chat extends Component
 {
@@ -104,6 +106,16 @@ class Chat extends Component
 
         $this->chat_message=null;
         $this->chats = ModelsChat::where('group_id', $this->activeChat->id)->orderBy('created_at', 'asc')->get();
+    }
+
+    public function sendReport($user_id, $chat_id){
+        $report = new Report();
+        $report->user_id = $user_id;
+        $report->message_id = $chat_id;
+        $report->group_id = $this->activeChat->id;
+        $report->save();
+
+        return redirect()->route('chats')->with('success', 'Report sent successfully. We will review it and take necessary action.');
     }
 
     public function mount(){
