@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminRoutes;
@@ -30,3 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile',[HomeController::class,'profile'])->name('profile');
 });
 
+
+// admin routes
+Route::group(['middleware' => AdminRoutes::class], function () {
+    Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin-dashboard');
+}); 

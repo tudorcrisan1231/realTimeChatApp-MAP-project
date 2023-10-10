@@ -108,9 +108,9 @@ class Chat extends Component
         $this->chats = ModelsChat::where('group_id', $this->activeChat->id)->orderBy('created_at', 'asc')->get();
     }
 
-    public function sendReport($user_id, $chat_id){
+    public function sendReport($chat_id){
         $report = new Report();
-        $report->user_id = $user_id;
+        $report->user_id = auth()->user()->id; // user who is sending the report
         $report->message_id = $chat_id;
         $report->group_id = $this->activeChat->id;
         $report->save();

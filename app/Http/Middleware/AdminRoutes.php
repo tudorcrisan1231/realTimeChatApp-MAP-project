@@ -15,6 +15,9 @@ class AdminRoutes
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if(auth()->check() && auth()->user()->role_id == 1){
+            return $next($request);
+        }
+        return abort(404);
     }
 }

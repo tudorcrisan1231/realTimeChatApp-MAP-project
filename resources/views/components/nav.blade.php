@@ -19,7 +19,7 @@
             <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 " href="#">Documentation</a>
 
             @if(auth()->check() && auth()->user()->role_id == 1)
-                <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 " href="#">Dashboard</a>
+                <a class="font-mediumsm:py-6 @if(Route::currentRouteName() == 'admin-dashboard') text-amber-600 @else text-gray-500 hover:text-gray-400 @endif" href="{{route('admin-dashboard')}}">Dashboard</a>
             @endif
 
             <a class="flex items-center gap-x-2 font-medium text-gray-500 hover:text-amber-600 sm:my-6" href="{{route('signout')}}">
