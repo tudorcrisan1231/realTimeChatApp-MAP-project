@@ -21,7 +21,7 @@
 
 - **Funcționalități de Administrator:** Ca administrator, poți vizualiza toți utilizatorii și ai opțiunea de a impune restricții (blocare).
 - **Gestionarea Rapoartelor:** Poți accesa și evalua toate rapoartele primite de la alți utilizatori.
-![Admin Dashboard](public/src/screencapture-127-0-0-1-8000-admin-dashboard-2023-10-11-02_14_46.png123 "Admin Dashboard")
+![Admin Dashboard](public/src/screencapture-127-0-0-1-8000-admin-dashboard-2023-10-11-02_14_46.png "Admin Dashboard")
 
 
 ## Tehnologii Folosite
