@@ -23,6 +23,10 @@
 - **Gestionarea Rapoartelor:** Poți accesa și evalua toate rapoartele primite de la alți utilizatori.
 ![Admin Dashboard](public/src/screencapture-127-0-0-1-8000-admin-dashboard-2023-10-11-02_14_46.png "Admin Dashboard")
 
+- **Disponibil pentru tablete si telefoane:** Aplicația este optimizată pentru a fi utilizată și pe dispozitive mobile. Având un design responsiv, interfața se adaptează în funcție de dimensiunea ecranului.
+![Responive](public/src/screencapture-127-0-0-1-8000-2023-10-11-02_37_13.png "Responive")
+![Responive](public/src/screencapture-127-0-0-1-8000-login-2023-10-11-02_38_13.png "Responive")
+![Responive](public/src/screencapture-127-0-0-1-8000-profile-2023-10-11-02_37_48.png "Responive")
 
 ## Tehnologii Folosite
 
