@@ -16,7 +16,7 @@
         <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block mobile_nav">
             <div class="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
             <a class="font-medium  sm:py-6 @if(Route::currentRouteName() == 'chats') text-amber-600 @else text-gray-500 hover:text-gray-400 @endif" href="{{route('chats')}}" aria-current="page">Chats</a>
-            <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 " href="#">Documentation</a>
+            {{-- <a class="font-medium text-gray-500 hover:text-gray-400 sm:py-6 " href="#">Documentation</a> --}}
 
             @if(auth()->check() && auth()->user()->role_id == 1)
                 <a class="font-mediumsm:py-6 @if(Route::currentRouteName() == 'admin-dashboard') text-amber-600 @else text-gray-500 hover:text-gray-400 @endif" href="{{route('admin-dashboard')}}">Dashboard</a>
