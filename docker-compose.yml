@@ -22,6 +22,7 @@ services:
   #Database server 
   database:
     image: mysql:5.7.33
+    container_name: database
     ports:
       - 3306:3306 # my port so I can connect to it : docker port
     environment:

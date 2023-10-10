@@ -26,7 +26,7 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
         
         $user = User::where('email', $request->email)->first();
-        if($user->banned == 1 && $user->role_id == 0){
+        if($user && $user->banned == 1 && $user->role_id == 0){
             return redirect("login")->withError('Your account has been banned. Please contact the administrator.');
         }
 
