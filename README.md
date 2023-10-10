@@ -4,24 +4,24 @@
 
 - **Mesagerie:** Aplicație de chat pentru trimiterea de mesaje.
 - **Autentificare și Înregistrare:** Posibilitatea de a te autentifica și înregistra folosind adresa de email, un nume de utilizator și o parolă.
-![alt text](public/src/screencapture-127-0-0-1-8000-login-2023-10-11-02_05_47.png "Login")
-![alt text](public/src/screencapture-127-0-0-1-8000-register-2023-10-11-02_05_58.png "Register")
+![Login](public/src/screencapture-127-0-0-1-8000-login-2023-10-11-02_05_47.png "Login")
+![Register](public/src/screencapture-127-0-0-1-8000-register-2023-10-11-02_05_58.png "Register")
 
 - **Profil Personalizabil:** Opțiunea de a personaliza și actualiza profilul.
-![alt text](public/src/screencapture-127-0-0-1-8000-profile-2023-10-11-02_08_03.png "Actualizare Profil")
+![Actualizare Profil](public/src/screencapture-127-0-0-1-8000-profile-2023-10-11-02_08_03.png "Actualizare Profil")
 
 - **Conversații Grup și Individuale:** Capacitatea de a crea grupuri de discuție alături de alți utilizatori, dar și de a iniția conversații individuale.
-![alt text](public/src/create_chat.png.png "Report")
+![Creare grup](public/src/create_chat.png "Creare grup")
 
 - **Trimiteți Mesaje în Grupuri:** Abilitatea de a trimite mesaje în cadrul grupurilor create.
 ![alt text](public/src/screencapture-127-0-0-1-8000-2023-10-11-02_11_45.png "Mesaje")
 
 - **Raportare Mesaje:** Posibilitatea de a raporta mesaje inadecvate.
-![alt text](public/src/report.png "Report")
+![Report](public/src/report.png "Report")
 
 - **Funcționalități de Administrator:** Ca administrator, poți vizualiza toți utilizatorii și ai opțiunea de a impune restricții (blocare).
 - **Gestionarea Rapoartelor:** Poți accesa și evalua toate rapoartele primite de la alți utilizatori.
-![alt text](public/src/screencapture-127-0-0-1-8000-admin-dashboard-2023-10-11-02_14_46.png "Admin Dashboard")
+![Admin Dashboard](public/src/screencapture-127-0-0-1-8000-admin-dashboard-2023-10-11-02_14_46.png123 "Admin Dashboard")
 
 
 ## Tehnologii Folosite
