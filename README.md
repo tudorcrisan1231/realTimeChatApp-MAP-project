@@ -1,5 +1,12 @@
 # Descriere Aplicație Chat - Proiect MAP
 
+## Instalare
+- **Cerințe:** Pentru a putea rula aplicația, este necesară instalarea [Docker](https://docs.docker.com/get-docker/) și [Docker Compose](https://docs.docker.com/compose/install/). Porturile 8000 și 3306 trebuie să fie libere. (8000 pentru aplicație și 3306 pentru baza de date)
+- **Pasul 1:** Descarcă proiectul de pe GitHub folosind comanda `git clone` sau descarcă arhiva proiectului si extrage-o (unzip).
+- **Pasul 2:** Deschide un terminal în directorul proiectului și rulează comanda ```docker-compose up --build```. Acest lucru va construi și rula containerele necesare pentru aplicație. (Procesul poate dura câteva minute bune)
+- **Pasul 3:** După ce containerele sunt construite și rulate, in terminal vei vedea un mesaj de genul: ```INFO  Server running on [http://0.0.0.0:8000]. (Press CTRL+C to quit)```. Aplicația este acum disponibilă la adresa [http://127.0.0.1:8000](http://127.0.0.1:8000).
+- **Pasul 4:** Dupa ce intri pe adresa de mai sus te poti conectat pe platforma cu utilizatorii pusi in pagina de login sau iti poti crea un cont nou.
+
 ## Caracteristici Principale
 
 - **Mesagerie:** Aplicație de chat pentru trimiterea de mesaje.
