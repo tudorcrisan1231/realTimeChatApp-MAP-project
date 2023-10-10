@@ -26,11 +26,11 @@ services:
     ports:
       - 3306:3306 # my port so I can connect to it : docker port
     environment:
-      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: 'secret'
       MYSQL_ROOT_HOST: '%'
-      MYSQL_DATABASE: '${DB_DATABASE}'
-      MYSQL_USER: '${DB_USERNAME}'
-      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: 'realtimechatapp_docker'
+      MYSQL_USER: 'tudor'
+      MYSQL_PASSWORD: 'secret'
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
       - db-data:/var/lib/mysql # where the data is stored in the container
