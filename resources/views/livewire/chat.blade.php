@@ -183,15 +183,22 @@
                                                 </span>
                                             </span>
                                         @endif            
+                                        <div class="flex flex-col gap-1">
+                                            <div class=" flex gap-1 items-center">
+                                                <span class="font-bold text-sm">{{ $chat->getSender->username }}</span>
 
-                                        <div class="group/chat bg-white border border-gray-200 rounded-lg p-2 sm:px-4 space-y-3 text-xs sm:text-sm relative">
-                                            {{$chat->message}}
-
-                                            <div wire:click="sendReport({{$chat->id}})" class="hidden absolute -top-2 -right-2 group-hover/chat:flex items-center justify-center rounded-full bg-gray-200 cursor-pointer" title="Report this message">
-                                                <svg class=" text-red-600 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15.73 3H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27L15.73 3zM19 14.9L14.9 19H9.1L5 14.9V9.1L9.1 5h5.8L19 9.1v5.8z"/><circle cx="12" cy="16" r="1" fill="currentColor"/><path fill="currentColor" d="M11 7h2v7h-2z"/></svg>
+                                                <span class="text-xs">({{timePassed($chat->created_at)}})</span>
                                             </div>
-                                           
+                                            <div class="group/chat bg-white border border-gray-200 rounded-lg p-2 sm:px-4 space-y-3 text-xs sm:text-sm relative">
+                                                {{$chat->message}}
+    
+                                                <div wire:click="sendReport({{$chat->id}})" class="hidden absolute -top-2 -right-2 group-hover/chat:flex items-center justify-center rounded-full bg-gray-200 cursor-pointer" title="Report this message">
+                                                    <svg class=" text-red-600 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M15.73 3H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27L15.73 3zM19 14.9L14.9 19H9.1L5 14.9V9.1L9.1 5h5.8L19 9.1v5.8z"/><circle cx="12" cy="16" r="1" fill="currentColor"/><path fill="currentColor" d="M11 7h2v7h-2z"/></svg>
+                                                </div>
+                                               
+                                            </div>
                                         </div>
+                                        
 
                                        
                                     </li>
