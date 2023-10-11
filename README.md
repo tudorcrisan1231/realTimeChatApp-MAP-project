@@ -7,6 +7,9 @@
 - **Pasul 3:** După ce containerele sunt construite și rulate, in terminal vei vedea un mesaj de genul: ```INFO  Server running on [http://0.0.0.0:8000]. (Press CTRL+C to quit)```. Aplicația este acum disponibilă la adresa [http://127.0.0.1:8000](http://127.0.0.1:8000).
 - **Pasul 4:** Dupa ce intri pe adresa de mai sus te poti conectat pe platforma cu utilizatorii pusi in pagina de login sau iti poti crea un cont nou.
 
+## Versiune LIVE
+- **Link:** [chatapp.tcn-dev.software](https://chatapp.tcn-dev.software/)
+
 ## Caracteristici Principale
 
 - **Mesagerie:** Aplicație de chat pentru trimiterea de mesaje.
