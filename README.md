@@ -48,3 +48,7 @@
 - **Docker:** Aplicația este containerizată și poate fi ușor lansată folosind Docker, ceea ce face gestionarea și scalarea ei mai simplă și eficientă. (https://www.docker.com/)
 
 
+### Resurse Folosite
+- **Ilustratii:** [storyset](https://storyset.com/)
+- **Componente:** [Flowbite](https://flowbite.com/) - [Preline](https://preline.co/index.html) - [tailbits](https://www.tailbits.com/)
+
