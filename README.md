@@ -24,7 +24,7 @@
 ![alt text](public/src/screencapture-chatapp-tcn-dev-software-2023-10-11-03_46_49.png "Mesaje")
 
 - **Raportare Mesaje:** Posibilitatea de a raporta mesaje inadecvate.
-![Report](public/src/report.png "Report")
+![Report](public/src/report_msg.png "Report")
 
 - **Funcționalități de Administrator:** Ca administrator, poți vizualiza toți utilizatorii și ai opțiunea de a impune restricții (blocare).
 - **Gestionarea Rapoartelor:** Poți accesa și evalua toate rapoartele primite de la alți utilizatori.
