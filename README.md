@@ -52,3 +52,6 @@
 - **Ilustratii:** [storyset](https://storyset.com/)
 - **Componente:** [Flowbite](https://flowbite.com/) - [Preline](https://preline.co/index.html) - [tailbits](https://www.tailbits.com/)
 
+<p align="center">
+  &copy; 2023 Tudor Crisan | [tudor-crisan.com](https://tudor-crisan.com/)
+</p>
