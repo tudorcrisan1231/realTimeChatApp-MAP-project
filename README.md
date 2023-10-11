@@ -21,7 +21,7 @@
 ![Creare grup](public/src/create_chat.png "Creare grup")
 
 - **Trimiteți Mesaje în Grupuri:** Abilitatea de a trimite mesaje în cadrul grupurilor create.
-![alt text](public/src/screencapture-127-0-0-1-8000-2023-10-11-02_11_45.png "Mesaje")
+![alt text](public/src/screencapture-chatapp-tcn-dev-software-2023-10-11-03_46_49.png "Mesaje")
 
 - **Raportare Mesaje:** Posibilitatea de a raporta mesaje inadecvate.
 ![Report](public/src/report.png "Report")
@@ -31,7 +31,7 @@
 ![Admin Dashboard](public/src/screencapture-127-0-0-1-8000-admin-dashboard-2023-10-11-02_14_46.png "Admin Dashboard")
 
 - **Disponibil pentru tablete si telefoane:** Aplicația este optimizată pentru a fi utilizată și pe dispozitive mobile. Având un design responsiv, interfața se adaptează în funcție de dimensiunea ecranului.
-![Responive](public/src/screencapture-127-0-0-1-8000-2023-10-11-02_37_13.png "Responive")
+![Responive](public/src/screencapture-chatapp-tcn-dev-software-2023-10-11-03_47_19.png "Responive")
 ![Responive](public/src/screencapture-127-0-0-1-8000-login-2023-10-11-02_38_13.png "Responive")
 ![Responive](public/src/screencapture-127-0-0-1-8000-profile-2023-10-11-02_37_48.png "Responive")
 
